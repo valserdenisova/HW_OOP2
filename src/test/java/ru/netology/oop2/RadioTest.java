@@ -56,11 +56,24 @@ public class RadioTest {
     @Test
     public void shouldSetNextStationAbove9() {
         Radio radio = new Radio();
-        radio.setCurrentStation(8);
+        radio.setCurrentStation(9);
 
         radio.nextStation();
 
-        int expected = 9;
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetNextStationTo9() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(-1);
+
+        radio.nextStation();
+
+        int expected = 1;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -87,6 +100,19 @@ public class RadioTest {
         radio.prevStation();
 
         int expected = 9;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetPrevStatioTo0() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(1);
+
+        radio.prevStation();
+
+        int expected = 0;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -155,6 +181,19 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldIncreaseTo100() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(99);
+
+        radio.increaseVolume();
+
+        int expected = 100;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldDecreaseVolume() {
         Radio radio = new Radio();
         radio.setCurrentVolume(50);
@@ -171,6 +210,19 @@ public class RadioTest {
     public void shouldDecreaseVolumeBelow0() {
         Radio radio = new Radio();
         radio.setCurrentVolume(0);
+
+        radio.decreaseVolume();
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldDecreaseVolumeTo0() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(1);
 
         radio.decreaseVolume();
 
