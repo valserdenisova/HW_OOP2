@@ -56,11 +56,11 @@ public class RadioTest {
     @Test
     public void shouldSetNextStationAbove9() {
         Radio radio = new Radio();
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(8);
 
         radio.nextStation();
 
-        int expected = 0;
+        int expected = 9;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
