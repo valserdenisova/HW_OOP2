@@ -2,6 +2,7 @@ package ru.netology.oop2;
 
 public class Radio {
     private int currentStation;
+    private int currentVolume;
 
     public int getCurrentStation() {
         return currentStation;
@@ -16,26 +17,6 @@ public class Radio {
         }
         currentStation = newCurrentStation;
     }
-
-    public void nextStation() {
-        if (currentStation == 9) {
-            currentStation = 0;
-        }
-        else {
-            currentStation = currentStation + 1;
-        }
-    }
-
-    public void prevStation() {
-        if (currentStation == 0) {
-            currentStation = 9;
-        }
-        else {
-            currentStation = currentStation - 1;
-        }
-    }
-
-    private int currentVolume;
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -52,11 +33,26 @@ public class Radio {
         currentVolume = newCurrentVolume;
     }
 
+    public void nextStation() {
+        if (currentStation == 9) {
+            currentStation = 0;
+        } else {
+            currentStation = currentStation + 1;
+        }
+    }
+
+    public void prevStation() {
+        if (currentStation == 0) {
+            currentStation = 9;
+        } else {
+            currentStation = currentStation - 1;
+        }
+    }
+
     public void increaseVolume() {
         if (currentVolume == 100) {
             currentVolume = 100;
-        }
-        else {
+        } else {
             currentVolume = currentVolume + 1;
         }
     }
@@ -64,8 +60,7 @@ public class Radio {
     public void decreaseVolume() {
         if (currentVolume == 0) {
             currentVolume = 0;
-        }
-        else {
+        } else {
             currentVolume = currentVolume - 1;
         }
     }
