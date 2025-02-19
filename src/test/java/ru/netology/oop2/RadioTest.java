@@ -7,11 +7,11 @@ public class RadioTest {
 
     @Test
     public void shouldSetCurrentStation() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(35);
 
-        radio.setCurrentStation(5);
+        radio.setCurrentStation(30);
 
-        int expected = 5;
+        int expected = 30;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -43,21 +43,21 @@ public class RadioTest {
 
     @Test
     public void shouldSetNextStation() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(5);
+        Radio radio = new Radio(25);
+        radio.setCurrentStation(23);
 
         radio.nextStation();
 
-        int expected = 6;
+        int expected = 24;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldSetNextStationAbove9() {
-        Radio radio = new Radio();
-        radio.setCurrentStation(9);
+    public void shouldSetNextStationAbove() {
+        Radio radio = new Radio(25);
+        radio.setCurrentStation(24);
 
         radio.nextStation();
 
@@ -95,12 +95,12 @@ public class RadioTest {
 
     @Test
     public void shouldSetPrevStationBelow0() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(25);
         radio.setCurrentStation(0);
 
         radio.prevStation();
 
-        int expected = 9;
+        int expected = 24;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
